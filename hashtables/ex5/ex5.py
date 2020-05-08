@@ -1,8 +1,17 @@
+import ntpath
+
 def finder(files, queries):
 
-    """
-    YOUR CODE HERE
-    """
+    cache = {}
+    result = []
+    for j in queries:
+        if j not in cache:
+            cache[j] = 'TRUE'
+
+    for i in files:
+        if ntpath.basename(i) in cache:
+            result.append(i)
+                        
 
     return result
 

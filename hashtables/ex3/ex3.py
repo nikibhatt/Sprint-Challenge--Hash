@@ -1,8 +1,17 @@
 def intersection(arrays):
 
-    """
-    YOUR CODE HERE
-    """
+    cache = {}
+    result = []
+    for row in range(len(arrays)):
+        for item in arrays[row]:
+            if item not in cache:
+                cache[item] = 1
+            else:
+                cache[item] += 1
+
+    for element in cache:
+        if cache[element] == len(arrays):
+            result.append(element)
 
     return result
 
